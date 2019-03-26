@@ -1,5 +1,5 @@
 // import _ from 'lodash';
-// import $ from 'jquery';
+import $ from 'jquery';
 import pizzaDiagram from '../resources/pizza-collaboration.bpmn';
 
 import BpmnModeler from 'bpmn-js/lib/Modeler';
@@ -41,3 +41,49 @@ modeler.importXML(pizzaDiagram, function(err) {
     console.log('something went wrong:', err);
   }
 });
+
+$("#hidePanel").click(function() {
+  $('#js-properties-panel').addClass("hidden");
+  $('.io-editing-tools, .io-zoom-controls').css("right","15px");
+  $('.io-zoom-controls').css("bottom","90px");
+  $('.bpmn-js-bpmnlint-button').css("right","125px");
+  $('#editPanel').removeClass("hidden");
+});
+
+$("#editPanel").click(function() {
+  $('#js-properties-panel').removeClass("hidden");
+  $('.io-editing-tools, .io-zoom-controls').css("right","280px");
+  $('.io-zoom-controls').css("bottom","15px");
+  $('.bpmn-js-bpmnlint-button').css("right","330px");
+  $('#editPanel').addClass("hidden");
+});
+
+$("#toggleFullscreen").click(function() {
+  toggleFullscreen();
+})
+
+function toggleFullscreen(elem) {
+  elem = elem || document.documentElement;
+  if (!document.fullscreenElement && !document.mozFullScreenElement &&
+    !document.webkitFullscreenElement && !document.msFullscreenElement) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+}

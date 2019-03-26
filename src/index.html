@@ -10,7 +10,9 @@
     
     <div class="canvas" id="js-canvas"></div>
     <div class="properties-panel-parent" id="js-properties-panel">
-        <i class="far fa-caret-square-right"></i>
+            <button title="create new BPMN diagram" jsaction="click:bio.createNew" id="hidePanel">
+                    <span class="fas fa-caret-square-right"></span>
+                </button>
     </div>
 
     <div class="io-import-export">
@@ -53,8 +55,13 @@
                 </button>
             </li> -->
             <li class="io-control">
-                <button title="Toggle Fullscreen" jsaction="click:bio.toggleFullscreen">
+                <button title="Toggle Fullscreen" jsaction="click:bio.toggleFullscreen" id="toggleFullscreen">
                     <span class="fas fa-arrows-alt-v"> </span>
+                </button>
+            </li>
+            <li class="io-control hidden" id="editPanel">
+                <button title="Toggle Panel" jsaction="click:bio.togglePanel">
+                    <span class="fas fa-pencil-alt"> </span>
                 </button>
             </li>
         </ul>

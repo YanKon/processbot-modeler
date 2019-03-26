@@ -286,7 +286,7 @@ a:link {
   margin-left: 10px;
 }
 
-.fa-caret-square-right {
+.fa-caret-square-right, #hidePanel {
   z-index: 9999;
   position: fixed;
   right:10px;
@@ -296,11 +296,30 @@ a:link {
   cursor: pointer;
   font-size: 20px;
   line-height: 24px;
-  color: black;
+  color: #555555;
   background: none;
   border: none;
 
 }
+
+.fa-caret-square-right:hover {
+  color: black;
+}
+
+.io-editing-tools > .io-control-list {
+  padding-top: 0px !important;
+  padding-right: 0px !important
+}
+
+.bpmn-js-bpmnlint-button {
+  right: 330px;
+}
+
+.hidden {
+  display:none !important;
+}
+
+
 
 // .io-editing-tools .io-control button {
 //   margin: 0;
