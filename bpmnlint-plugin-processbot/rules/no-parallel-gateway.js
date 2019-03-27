@@ -3,9 +3,8 @@ const { is } = require("bpmnlint-utils");
 /**
  * Rule that reports manual tasks being used.
  */
-module.exports = function() {
+module.exports = function () {
   function check(node, reporter) {
-    console.log(node);
 
     if (is(node, "bpmn:ParallelGateway")) {
       reporter.report(

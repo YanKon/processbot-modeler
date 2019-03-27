@@ -15,6 +15,7 @@ module.exports = {
             title: 'Processbot Modeler',
             myPageHeader: 'Processbot Modeler',
             template: './src/index.html',
+            favicon: './src/images/favicon.png',
             filename: './index.html' //relative to root of the application
         })
     ],

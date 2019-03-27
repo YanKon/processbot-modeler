@@ -53,8 +53,6 @@ modeler.importXML(PizzaDiagram, function(err) {
     zoomlevel = 0.8;	
     modeler.get('canvas').zoom(zoomlevel);
     modeler.get('linting').activateLinting();
-    console.log(modeler.get('commandStack'));
-    // console.log(BpmnKeyboardBindings)
   } else {
     console.log('something went wrong:', err);
   }
@@ -264,7 +262,6 @@ fileInput.addEventListener('change', function (e) {
 });
 
 function openDiagram(xml) {
-  console.log(xml)
   modeler.get('linting').deactivateLinting();
   modeler.importXML(xml, function(err) {
     if (err) {
@@ -282,7 +279,6 @@ $(function() {
 
   $('.io-export li a').click(function(e) {
     if (!$(this).is('.active')) {
-      console.log($(this));
       e.preventDefault();
       e.stopPropagation();
     }
@@ -290,7 +286,6 @@ $(function() {
 
   function setEncoded(link, name, data) {
     var encodedData = encodeURIComponent(data);
-    console.log(encodedData);
 
     if (data) {
       link.addClass('active').attr({
@@ -326,4 +321,3 @@ $(function() {
 
   modeler.on('commandStack.changed', exportArtifacts);
 });
-
