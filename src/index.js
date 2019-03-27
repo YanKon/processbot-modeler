@@ -3,6 +3,9 @@ import $ from 'jquery';
 import newDiagram from '../resources/newDiagram.bpmn';
 import PizzaDiagram from '../resources/pizza-collaboration.bpmn';
 
+import {
+  debounce
+} from 'min-dash';
 
 import BpmnModeler from 'bpmn-js/lib/Modeler';
 import propertiesPanelModule from 'bpmn-js-properties-panel';
@@ -53,28 +56,101 @@ modeler.importXML(PizzaDiagram, function(err) {
 });
 
 $("#hidePanel").click(function() {
-  $('#js-properties-panel').addClass("hidden");
+  // $('.vertical').css("display","none")
+  // $('#js-properties-panel').toggle("slide");
+  // $('.io-editing-tools, .io-zoom-controls').css("right","15px");
+  // $('.io-zoom-controls').css("bottom","90px");
+  // $('.bpmn-js-bpmnlint-button').css("right","15px");
+  // // $('.io-alerts').css("left","50%");
+  // $('.io-dialog .content').css("left","55%");
+  // $('.djs-search-container').css("left","0");
+  // $('.vertical')
+  //   .delay(400)
+  //   .queue(function (next) { 
+  //     $(this).css("right","0px")
+  //     $(this).css("height","50px")
+  //     $(this).css('z-index', '0');
+  //     $(this).css("display","block")
+  //     next(); 
+  //   });
+
+  $('#js-properties-panel').toggle();
   $('.io-editing-tools, .io-zoom-controls').css("right","15px");
   $('.io-zoom-controls').css("bottom","90px");
   $('.bpmn-js-bpmnlint-button').css("right","15px");
-  $('#editPanel').removeClass("hidden");
   // $('.io-alerts').css("left","50%");
   $('.io-dialog .content').css("left","55%");
   $('.djs-search-container').css("left","0");
-  
+  $('.vertical').css("right","0px")
+  $('.vertical').css("height","50px")
+
 });
 
 $("#editPanel").click(function() {
-  $('#js-properties-panel').removeClass("hidden");
-  $('.io-editing-tools, .io-zoom-controls').css("right","280px");
-  $('.io-zoom-controls').css("bottom","15px");
-  $('.bpmn-js-bpmnlint-button').css("right","280px");
-  $('#editPanel').addClass("hidden");
-  // $('.io-alerts').css("left","40%");
-  $('.io-dialog .content').css("left","48%");
-  $('.djs-search-container').css("left","-180px");
+
+  if($('#js-properties-panel:hidden').length != 0){
+    
+    // $('#js-properties-panel').toggle("slide");
+    // $('.io-editing-tools, .io-zoom-controls').css("right","280px");
+    // $('.io-zoom-controls').css("bottom","15px");
+    // $('.bpmn-js-bpmnlint-button').css("right","280px");
+    // // $('.io-alerts').css("left","40%");
+    // $('.io-dialog .content').css("left","48%");
+    // $('.djs-search-container').css("left","-180px");
+    // $('.vertical').css("display","none")
+    // $('.vertical')
+    //   .delay(400)
+    //   .queue(function (next) { 
+    //     $(this).css('right', '259px'); 
+    //     $(this).css('height', '30px');
+    //     $(this).css('z-index', '11');
+    //     $(this).css("display","block")
+    //     next(); 
+    //   });
+
+    $('#js-properties-panel').toggle();
+    $('.io-editing-tools, .io-zoom-controls').css("right", "280px");
+    $('.io-zoom-controls').css("bottom", "15px");
+    $('.bpmn-js-bpmnlint-button').css("right", "280px");
+    // $('.io-alerts').css("left","50%");
+    $('.io-dialog .content').css("left", "48%");
+    $('.djs-search-container').css("left", "-180px");
+    $('.vertical').css("right", "259px")
+    $('.vertical').css("height", "30px")
+  
+
+  }
+  else {
+    // $('.vertical').css("display","none")
+    // $('#js-properties-panel').toggle("slide");
+    // $('.io-editing-tools, .io-zoom-controls').css("right","15px");
+    // $('.io-zoom-controls').css("bottom","90px");
+    // $('.bpmn-js-bpmnlint-button').css("right","15px");
+    // // $('.io-alerts').css("left","50%");
+    // $('.io-dialog .content').css("left","55%");
+    // $('.djs-search-container').css("left","0");
+    // $('.vertical')
+    // .delay(400)
+    // .queue(function (next) { 
+    //   $(this).css("right","0px")
+    //   $(this).css("height","50px")
+    //   $(this).css('z-index', '0');
+    //   $(this).css("display","block")
+    //   next(); 
+    // });
+
+    $('#js-properties-panel').toggle();
+    $('.io-editing-tools, .io-zoom-controls').css("right","15px");
+    $('.io-zoom-controls').css("bottom","90px");
+    $('.bpmn-js-bpmnlint-button').css("right","15px");
+    // $('.io-alerts').css("left","50%");
+    $('.io-dialog .content').css("left","55%");
+    $('.djs-search-container').css("left","0");
+    $('.vertical').css("right","0px")
+    $('.vertical').css("height","50px")
 
 
+  }
 });
 
 $("#toggleFullscreen").click(function() {
@@ -144,52 +220,103 @@ $("#showKeyboard").on("click", function () {
 
 $("#createNew").on("click", function () {
   openDiagram(newDiagram);
+  
 })
 
 $("#openLocal").on("click", function () {
-  readSingleFile();
+  $('#fileDialog').trigger('click');
 })
 
+$("#downloadSVG").on("click", function () {
+  // modeler.saveSVG(done);
+})
 
-  
+$("#downloadDiagram").on("click", function () {
+  // modeler.saveXML({ format: true }, function(err, xml) {
+  //   done(err, xml);
+  // });
+})
 
+function saveSVG(done) {
+  modeler.saveSVG(done);
+}
+
+function saveDiagram(done) {
+
+  modeler.saveXML({ format: true }, function(err, xml) {
+    done(err, xml);
+  });
+}
+
+
+var fileInput = document.getElementById('fileDialog');
+fileInput.addEventListener('change', function (e) {
+  var file = fileInput.files[0];
+  var reader = new FileReader();
+  reader.onload = function (e) { 
+    openDiagram(reader.result)
+  }
+  reader.readAsText(file);
+});
 
 function openDiagram(xml) {
   modeler.importXML(xml, function(err) {
-
     if (err) {
-      // container
-      //   .removeClass('with-diagram')
-      //   .addClass('with-error');
-
-      // container.find('.error pre').text(err.message);
-
       console.error(err);
     } else {
-      // container
-      //   .removeClass('with-error')
-      //   .addClass('with-diagram');
     }
   });
+}
+
+$(function() {
   
-}
+  var downloadLink = $('#downloadDiagram');
+  var downloadSvgLink = $('#downloadSVG');
 
+  $('.io-export li a').click(function(e) {
+    if (!$(this).is('.active')) {
+      console.log($(this));
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  });
 
-function readSingleFile(e, callback) {
-  var file = e.target.files[0];
+  function setEncoded(link, name, data) {
+    var encodedData = encodeURIComponent(data);
+    console.log(encodedData);
 
-  var reader = new FileReader();
-  reader.onload = function(){
-    var text = reader.result;
-    openDiagram(text);
-    $(".canvas").removeClass("hidden");
-    $(".properties-panel-parent").removeClass("hidden");
-    $(".buttons").removeClass("hidden");
+    if (data) {
+      link.addClass('active').attr({
+        'href': 'data:application/bpmn20-xml;charset=UTF-8,' + encodedData,
+        'download': name
+      });
+    } else {
+      link.removeClass('active');
+    }
+  }
 
-    $(".content").addClass("hidden");
-    e.stopPropagation();
-    e.preventDefault();
-  };
-  reader.readAsText(file);
+  var exportArtifacts = debounce(function() {
 
-}
+    $(".io-export li a").css("cssText", "color: #555555 !important;");
+    $(".io-export").removeClass("noHover");
+
+    // $(".io-export li a svg").hover(function() {
+    //   $(this).css("cssText", "color: black !important;");
+    // });
+
+    // $(".io-export li a svg").hover(function(e) { 
+  //     $(this).css("color",e.type === "mouseenter"?"red":"black") 
+  // })
+
+    saveSVG(function(err, svg) {
+      setEncoded(downloadSvgLink, 'diagram.svg', err ? null : svg);
+    });
+
+    saveDiagram(function(err, xml) {
+      setEncoded(downloadLink, 'diagram.bpmn', err ? null : xml);
+    });
+  }, 500);
+
+  modeler.on('commandStack.changed', exportArtifacts);
+});
+

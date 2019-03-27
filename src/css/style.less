@@ -152,6 +152,10 @@ a:link {
   bottom: 25px;
 }
 
+.io-export li a{
+  color: #b2b2b2 !important;
+}
+
 .io-control-list.io-horizontal, .io-control-list.io-horizontal li {
   display: inline-block;
 }
@@ -257,8 +261,8 @@ a:link {
 .io-zoom-controls {
   width: auto;
   position: fixed;
-  right: 280px;
-  bottom: 25px;
+  right: 15px;
+  bottom: 90px;
 }
 
 .li {
@@ -269,7 +273,7 @@ a:link {
 .io-editing-tools {
   width: auto;
   position: fixed;
-  right: 280px;
+  right: 15px;
   top: 20px;
   display: none;
 }
@@ -312,7 +316,7 @@ a:link {
 }
 
 .bpmn-js-bpmnlint-button {
-  right: 280px;
+  right: 15px;
   top: 70px;
 }
 
@@ -324,15 +328,10 @@ a:link {
   width: 34px;
   text-align: center;
 }
-
-#editPanel, #keyboard_li {
+ #keyboard_li {
   vertical-align: top;
   width: 34px;
   padding-left: 1px;
-}
-
-#editPanel > button{
-  font-size: 18px
 }
 
 #keyboard_li > button{
@@ -481,3 +480,33 @@ a:link {
 #initiallyHiddenBlock {
   display: none;
 }
+
+.noHover{
+  pointer-events: none;
+}
+
+.vertical {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  z-index: 11;
+  width: 150px;
+  height: 50px;
+  position: fixed;
+  border: solid 1px #E0E0E0;
+  border-bottom: none;
+  top: 25%;
+  right: 0px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 2px 2px 0 0;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  // float: right;
+  -moz-transform: rotate(270deg);  /* FF3.5+ */
+  -o-transform: rotate(270deg);  /* Opera 10.5 */
+  -webkit-transform: rotate(-90deg);  /* Saf3.1+, Chrome */
+  -moz-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  -webkit-transform-origin: 100% 100%;
+} 
