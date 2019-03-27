@@ -1,0 +1,21 @@
+{
+  "name": "bpmnlint-plugin-processbot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "bpmnlint processbot rules",
+  "main": "index.js",
+  "author": {
+    "name": "Yannick Konrad",
+    "url": "https://github.com/YanKon"
+  },
+  "contributors": [ 
+    {
+      "name":"Christopher Schmidht",
+      "url": "https://github.com/SchmidtChris95"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bpmnlint-utils": "^1.0.1"
+  }
+}
