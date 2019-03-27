@@ -1,26 +1,21 @@
-const {
-    is
-  } = require('bpmnlint-utils');
-  
-  
-  /**
-   * Rule that reports manual tasks being used.
-   */
-  module.exports = function() {
-  
-    function check(node, reporter) {
-       
-        if (is(node, 'bpmn:ParallelGateway')) {
-            console.log(node);
-        }
+const { is } = require("bpmnlint-utils");
 
-      if (is(node, 'bpmn:ParallelGateway')) {
-        reporter.report(node.id, 'ParallelGateway is disallowed. Please make it sequenctial.');
-      }
+/**
+ * Rule that reports manual tasks being used.
+ */
+module.exports = function() {
+  function check(node, reporter) {
+    console.log(node);
+
+    if (is(node, "bpmn:ParallelGateway")) {
+      reporter.report(
+        node.id,
+        "ParallelGateway is disallowed. Please make it sequenctial."
+      );
     }
-  
-    return {
-      check: check
-    };
+  }
+
+  return {
+    check: check
   };
-  
+};

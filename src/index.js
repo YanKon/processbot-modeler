@@ -52,7 +52,7 @@ modeler.importXML(PizzaDiagram, function(err) {
     modeler.get('canvas').zoom('fit-viewport');
     zoomlevel = 0.8;	
     modeler.get('canvas').zoom(zoomlevel);
-    // modeler.get('linting').activateLinting();
+    modeler.get('linting').activateLinting();
     console.log(modeler.get('commandStack'));
     // console.log(BpmnKeyboardBindings)
   } else {
@@ -225,7 +225,6 @@ $("#showKeyboard").on("click", function () {
 
 $("#createNew").on("click", function () {
   openDiagram(newDiagram);
-  
 })
 
 $("#openLocal").on("click", function () {
@@ -265,10 +264,13 @@ fileInput.addEventListener('change', function (e) {
 });
 
 function openDiagram(xml) {
+  console.log(xml)
+  modeler.get('linting').deactivateLinting();
   modeler.importXML(xml, function(err) {
     if (err) {
       console.error(err);
     } else {
+      modeler.get('linting').activateLinting();
     }
   });
 }
