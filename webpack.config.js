@@ -22,11 +22,6 @@ module.exports = {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
-    resolve: {
-        alias: {
-            disallowedHelper: path.resolve(__dirname, 'node_modules/bpmnlint/rules/helper.js'),
-        }
-    },
     devServer: {
         contentBase: './dist'
     },
