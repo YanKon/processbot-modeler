@@ -9,14 +9,13 @@ const {
 module.exports = function() {
 
   function check(node, reporter) {
-    console.log(node)
+    // console.log(node)
 
     const name = (node.name || '').trim();
     // console.log(name)
-
-
-    if (is(node, 'bpmn:Task') && (node.get("chatbot:instruction") === "")) {
-      reporter.report(node.id, 'Task is missing general instruction');
+    
+    if (is(node, 'bpmn:Task') && typeof node.get("chatbot:detailInstruction") === 'undefined') {
+      reporter.report(node.id, 'Task is missing detail instruction');
     }
   }
 

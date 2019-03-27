@@ -1,0 +1,63 @@
+{
+    "name": "Chatbot",
+    "prefix": "chatbot",
+    "uri": "http://chatbot",
+    "xml": {
+        "tagAlias": "lowerCase"
+    },
+    "associations": [],
+    "types": [
+        {
+        "name": "chatbotInstructionTask",
+        "extends": [
+            "bpmn:Task"
+        ],
+        "properties": [
+            {
+            "name": "instruction",
+            "isAttr": true,
+            "type": "String"
+            }
+        ]
+        },
+        {
+            "name": "chatbotDetailInstructionTask",
+            "extends": [
+                "bpmn:Task"
+            ],
+            "properties": [
+                {
+                "name": "detailInstruction",
+                "isAttr": true,
+                "type": "String"
+                }
+            ]
+        },
+        {
+            "name": "chatbotInstructionProcess",
+            "extends": [
+                "bpmn:Process"
+            ],
+            "properties": [
+                {
+                "name": "instruction",
+                "isAttr": true,
+                "type": "String"
+                }
+            ]
+            },
+            {
+                "name": "chatbotDetailInstructionProcess",
+                "extends": [
+                    "bpmn:Process"
+                ],
+                "properties": [
+                    {
+                    "name": "detailInstruction",
+                    "isAttr": true,
+                    "type": "String"
+                    }
+                ]
+            }
+    ]
+}

@@ -9,7 +9,9 @@ import {
 
 import BpmnModeler from 'bpmn-js/lib/Modeler';
 import propertiesPanelModule from 'bpmn-js-properties-panel';
-import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/bpmn';
+// import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/bpmn';
+import propertiesProviderModule from '../properties-panel-extension/provider/chatbot';
+import chatbotModdleDescriptor from '../properties-panel-extension/descriptors/chatbot';
 import lintModule from 'bpmn-js-bpmnlint';
 import bpmnlintConfig from '../.bpmnlintrc';
 
@@ -38,6 +40,9 @@ var modeler = new BpmnModeler({
     propertiesPanelModule,
     propertiesProviderModule
   ],
+  moddleExtensions: {
+    magic: chatbotModdleDescriptor
+  }
 });
 
 modeler.importXML(PizzaDiagram, function(err) {
