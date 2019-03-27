@@ -289,7 +289,7 @@ a:link {
 .fa-caret-square-right, #hidePanel {
   z-index: 9999;
   position: fixed;
-  right:10px;
+  right:20px;
   top: 15px;
   padding: 0;
   outline: none;
@@ -312,15 +312,172 @@ a:link {
 }
 
 .bpmn-js-bpmnlint-button {
-  right: 330px;
+  right: 280px;
+  top: 70px;
 }
 
 .hidden {
   display:none !important;
 }
 
+#fullscreen_li {
+  width: 34px;
+  text-align: center;
+}
 
+#editPanel, #keyboard_li {
+  vertical-align: top;
+  width: 34px;
+  padding-left: 1px;
+}
+
+#editPanel > button{
+  font-size: 18px
+}
+
+#keyboard_li > button{
+  font-size: 18px
+}
 
 // .io-editing-tools .io-control button {
 //   margin: 0;
 // }
+
+// @media (max-width: 500px)
+.io-alerts {
+    width: 100%;
+    text-align: center;
+    left: 0;
+    margin: 0;
+}
+
+.io-alerts {
+    position: fixed;
+    top: 20px;
+    width: 450px;
+    text-align: center;
+    left: 40%;
+    margin-left: -225px;
+}
+
+.io-alerts .alertImport {
+  // display: none;
+  background: #FFFFDB;
+  padding: 10px 20px;
+  line-height: 20px;
+  margin: 0 auto 10px;
+}
+
+.io-alerts .alertEdit {
+  // display: none;
+  background: #FFFFDB;
+  padding: 10px 20px;
+  line-height: 20px;
+  margin: 0 auto 10px;
+}
+
+.io-alerts .alert.openEdit {
+  display: inline-block;
+}
+
+
+.io-alerts .closeAlert {
+  float: right;
+}
+
+.a:link {
+  text-decoration: none;
+}
+.closeAlert {
+  font-size: 22px;
+  font-weight: 700;
+  text-shadow: 0 1px 0 #FFF;
+  opacity: 0.2;
+  line-height: 0.8;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.a {
+  color: #740076;
+}
+
+.bpp-properties, .bpp-properties-group, .bpp-properties-header, .bpp-properties-tab-bar, .bpp-properties-tabs-links > li > a, .bpp-properties-tabs-links > li.bpp-active a {
+  background-color: white !important;
+}
+
+.io-dialog.open {
+  display: block;
+}
+
+.keybindings-dialog .content {
+  width: 450px !important;
+  margin-left: -250px;
+}
+
+.io-dialog .content {
+  position: fixed;
+  width: 600px;
+  left: 48%;
+  margin-left: -300px;
+  top: 100px;
+  background: white;
+  padding: 10px 30px 20px 30px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  height: auto;
+  z-index: 1001;
+}
+
+.content, .content > div {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: grey;
+}
+
+.tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+.td, .th {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+.keybindings-dialog .binding {
+  padding: 5px 10px;
+  font-family: monospace;
+}
+
+.djs-search-container {
+  left: -180px;
+}
+
+#initiallyHiddenBlock {
+  display: none;
+}
