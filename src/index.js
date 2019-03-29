@@ -48,7 +48,7 @@ var modeler = new BpmnModeler({
 modeler.importXML(PizzaDiagram, function(err) {
 
   if (!err) {
-    console.log('success!');
+    console.log('success import bpmn model!');
     modeler.get('canvas').zoom('fit-viewport');
     zoomlevel = 0.8;	
     modeler.get('canvas').zoom(zoomlevel);
