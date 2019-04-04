@@ -7,9 +7,8 @@ module.exports = {
         'processbot/no-parallel-gateway': 'error',
         'processbot/no-eventbased-gateway': 'error',
         'processbot/no-intermediate-catch-event': 'error',
-        'processbot/no-manual-task': 'error'
-
-
+        'processbot/no-manual-task': 'error',
+        'processbot/fake-exclusive-gateway': 'error'
       }
     },
     all: {
@@ -19,6 +18,7 @@ module.exports = {
         'processbot/no-parallel-gateway': 'error',
         'processbot/no-eventbased-gateway': 'error',
         'processbot/no-intermediate-catch-event': 'error',
+        'processbot/fake-exclusive-gateway': 'error',
         'processbot/no-manual-task': 'warn'
       }
     }

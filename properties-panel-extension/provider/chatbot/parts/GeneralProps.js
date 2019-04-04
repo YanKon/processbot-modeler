@@ -18,12 +18,21 @@ export default function(group, element) {
     }));
   }
 
-  if (is(element, 'bpmn:Gateway')) {
+  if (is(element, 'bpmn:IntermediateThrowEvent')) {
     group.entries.push(entryFactory.textBox({
-      id : 'description',
-      description : 'Give description',
-      label : 'Description',
-      modelProperty : 'description'
+      id : 'button',
+      description : 'Give button name',
+      label : 'Button name',
+      modelProperty : 'button'
+    }));
+  }
+
+  if (is(element, 'bpmn:ExclusiveGateway') && element.outgoing.length > 1) {
+    group.entries.push(entryFactory.textBox({
+      id : 'splitQuestion',
+      description : 'Give a split question',
+      label : 'Split question',
+      modelProperty : 'splitQuestion'
     }));
   }
 }

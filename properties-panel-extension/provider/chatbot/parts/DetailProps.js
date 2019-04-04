@@ -18,7 +18,7 @@ export default function(group, element) {
     }));
   }
 
-  if (is(element, 'bpmn:Gateway')) {
+  if (is(element, 'bpmn:IntermediateThrowEvent')) {
     group.entries.push(entryFactory.textBox({
       id : 'detailDescription',
       description : 'Give detail description',

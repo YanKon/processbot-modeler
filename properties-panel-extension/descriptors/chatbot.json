@@ -36,11 +36,11 @@
         {
             "name": "chatbotDescriptionGateway",
             "extends": [
-                "bpmn:Gateway"
+                "bpmn:ExclusiveGateway"
             ],
             "properties": [
                 {
-                "name": "description",
+                "name": "splitQuestion",
                 "isAttr": true,
                 "type": "String"
                 }
@@ -49,7 +49,7 @@
             {
                 "name": "chatbotDetailDescriptionProcess",
                 "extends": [
-                    "bpmn:Gateway"
+                    "bpmn:IntermediateThrowEvent"
                 ],
                 "properties": [
                     {
