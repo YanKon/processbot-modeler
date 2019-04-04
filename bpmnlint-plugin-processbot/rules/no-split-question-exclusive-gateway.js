@@ -12,7 +12,9 @@ const {
   
       const name = (node.name || '').trim();
       
-      if (is(node, 'bpmn:ExclusiveGateway') && typeof node.get("chatbot:splitQuestion") === 'undefined') {
+      const outgoing = node.outgoing || [];
+      
+      if (is(node, 'bpmn:ExclusiveGateway') && typeof node.get("chatbot:splitQuestion") === 'undefined' && outgoing.length > 1) {
         reporter.report(node.id, 'ExclusiveGateway is missing split question for the chatbot.');
       }
     }
