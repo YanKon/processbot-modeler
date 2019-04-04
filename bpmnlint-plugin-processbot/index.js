@@ -8,7 +8,9 @@ module.exports = {
         'processbot/no-eventbased-gateway': 'error',
         'processbot/no-intermediate-catch-event': 'error',
         'processbot/no-manual-task': 'error',
-        'processbot/fake-exclusive-gateway': 'error'
+        'processbot/fake-exclusive-gateway': 'error',
+        'processbot/no-button-name-intermadiate-event': 'error',
+        'processbot/no-split-question-exclusive-gateway': 'error',
       }
     },
     all: {
@@ -19,6 +21,8 @@ module.exports = {
         'processbot/no-eventbased-gateway': 'error',
         'processbot/no-intermediate-catch-event': 'error',
         'processbot/fake-exclusive-gateway': 'error',
+        'processbot/no-button-name-intermadiate-event': 'error',
+        'processbot/no-split-question-exclusive-gateway': 'error',
         'processbot/no-manual-task': 'warn'
       }
     }

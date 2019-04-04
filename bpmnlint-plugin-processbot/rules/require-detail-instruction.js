@@ -13,7 +13,7 @@ module.exports = function() {
     const name = (node.name || '').trim();
     
     if (is(node, 'bpmn:Task') && typeof node.get("chatbot:detailInstruction") === 'undefined') {
-      reporter.report(node.id, 'Task is missing detail instruction');
+      reporter.report(node.id, 'Task is missing detail instruction for the chatbot');
     }
   }
 

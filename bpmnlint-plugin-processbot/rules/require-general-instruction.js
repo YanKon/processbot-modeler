@@ -15,7 +15,7 @@ module.exports = function() {
     // console.log(name)
     
     if (is(node, 'bpmn:Task') && typeof node.get("chatbot:instruction") === 'undefined') {
-      reporter.report(node.id, 'Task is missing general instruction');
+      reporter.report(node.id, 'Task is missing general instruction for the chatbot');
     }
   }
 
