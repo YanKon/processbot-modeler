@@ -8,7 +8,7 @@
     "associations": [],
     "types": [
         {
-        "name": "chatbotInstructionTask",
+        "name": "chatbotInformationsTask",
         "extends": [
             "bpmn:Task"
         ],
@@ -34,26 +34,26 @@
             ]
         },
         {
-            "name": "chatbotInstructionProcess",
+            "name": "chatbotDescriptionGateway",
             "extends": [
-                "bpmn:Process"
+                "bpmn:Gateway"
             ],
             "properties": [
                 {
-                "name": "instruction",
+                "name": "description",
                 "isAttr": true,
                 "type": "String"
                 }
             ]
             },
             {
-                "name": "chatbotDetailInstructionProcess",
+                "name": "chatbotDetailDescriptionProcess",
                 "extends": [
-                    "bpmn:Process"
+                    "bpmn:Gateway"
                 ],
                 "properties": [
                     {
-                    "name": "detailInstruction",
+                    "name": "detailDescription",
                     "isAttr": true,
                     "type": "String"
                     }

@@ -13,8 +13,8 @@ import nameProps from 'bpmn-js-properties-panel/lib/provider/bpmn/parts/NameProp
 
 
 // Require your custom property entries.
-import instructionProps from './parts/InstructionProps';
-import detailInstructionProps from './parts/DetailInstructionProps';
+import generalProps from './parts/GeneralProps';
+import detailProps from './parts/DetailProps';
 
 // The general tab contains all bpmn relevant properties.
 // The properties are organized in groups.
@@ -46,7 +46,7 @@ function createGeneralTabGroups(element, bpmnFactory, elementRegistry, translate
   documentationProps(documentationGroup, element, bpmnFactory, translate);
 
   // var chatbotGroup = {
-  //   id: 'chatbotInstruction',
+  //   id: 'chatbotInformations',
   //   label: 'Chatbot Instruction',
   //   entries: []
   // };
@@ -70,14 +70,14 @@ function createChatbotTabGroups(element, bpmnFactory) {
 
   // Create a group called "Black Magic".
   var chatbotGroup = {
-    id: 'chatbotInstruction',
-    label: 'Chatbot Instruction',
+    id: 'chatbotInformations',
+    label: 'Chatbot informations',
     entries: []
   };
 
   // Add the spell props to the black magic group.
-  instructionProps(chatbotGroup, element, bpmnFactory);
-  detailInstructionProps(chatbotGroup, element, bpmnFactory);
+  generalProps(chatbotGroup, element, bpmnFactory);
+  detailProps(chatbotGroup, element, bpmnFactory);
 
   return [
     chatbotGroup
