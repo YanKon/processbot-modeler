@@ -4,7 +4,7 @@ const {
   
   
   /**
-   * Rule that reports missing targetNamespace on bpmn:Definitions.
+   * Rule that reports missing button name on bpmn:IntermediateThrowEvent.
    */
   module.exports = function() {
   

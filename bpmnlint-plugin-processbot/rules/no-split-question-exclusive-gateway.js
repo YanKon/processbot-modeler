@@ -4,7 +4,7 @@ const {
   
   
   /**
-   * Rule that reports missing targetNamespace on bpmn:Definitions.
+   * Rule that reports missing split question on bpmn:ExclusiveGateway.
    */
   module.exports = function() {
   

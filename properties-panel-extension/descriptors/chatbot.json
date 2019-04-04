@@ -34,7 +34,7 @@
             ]
         },
         {
-            "name": "chatbotDescriptionGateway",
+            "name": "chatbotDescriptionExclusiveGateway",
             "extends": [
                 "bpmn:ExclusiveGateway"
             ],
@@ -47,13 +47,26 @@
             ]
             },
             {
-                "name": "chatbotDetailDescriptionProcess",
+                "name": "chatbotDetailDescriptionIntermediateThrowEvent",
                 "extends": [
                     "bpmn:IntermediateThrowEvent"
                 ],
                 "properties": [
                     {
                     "name": "detailDescription",
+                    "isAttr": true,
+                    "type": "String"
+                    }
+                ]
+            },
+            {
+                "name": "chatbotButtonNameIntermediateThrowEvent",
+                "extends": [
+                    "bpmn:IntermediateThrowEvent"
+                ],
+                "properties": [
+                    {
+                    "name": "button",
                     "isAttr": true,
                     "type": "String"
                     }
