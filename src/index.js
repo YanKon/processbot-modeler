@@ -310,6 +310,7 @@ $(function() {
   //     $(this).css("color",e.type === "mouseenter"?"red":"black") 
   // })
 
+    // TODO: diagram in ProcessName umbenennen... Idee: Globale Variable ...
     saveSVG(function(err, svg) {
       setEncoded(downloadSvgLink, 'diagram.svg', err ? null : svg);
     });
