@@ -5,8 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        app: './src/index.js',
-        print: './src/print.js'
+        app: './app/index.js',
     },
     devtool: 'inline-source-map', // nur für die Entwicklung https://webpack.js.org/guides/development/ erleichtert das auffinden von bugs
     plugins: [
@@ -14,8 +13,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Processbot Modeler',
             myPageHeader: 'Processbot Modeler',
-            template: './src/index.html',
-            favicon: './src/images/favicon.png',
+            template: './app/index.html',
+            favicon: './app/images/favicon.png',
             filename: './index.html' //relative to root of the application
         })
     ],

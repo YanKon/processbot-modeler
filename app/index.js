@@ -24,7 +24,7 @@ import '../node_modules/bpmn-js-bpmnlint/dist/assets/css/bpmn-js-bpmnlint.css';
 import './css/style.less';
 
 import '../node_modules/@fortawesome/fontawesome-free/css/all.css'
-import '../node_modules/@fortawesome/fontawesome-free/js/all.js'
+import '@fortawesome/fontawesome-free/js/all'
 
 var modeler = new BpmnModeler({
   container: '#js-canvas',
@@ -59,24 +59,6 @@ modeler.importXML(PizzaDiagram, function(err) {
 });
 
 $("#hidePanel").click(function() {
-  // $('.vertical').css("display","none")
-  // $('#js-properties-panel').toggle("slide");
-  // $('.io-editing-tools, .io-zoom-controls').css("right","15px");
-  // $('.io-zoom-controls').css("bottom","90px");
-  // $('.bpmn-js-bpmnlint-button').css("right","15px");
-  // // $('.io-alerts').css("left","50%");
-  // $('.io-dialog .content').css("left","55%");
-  // $('.djs-search-container').css("left","0");
-  // $('.vertical')
-  //   .delay(400)
-  //   .queue(function (next) { 
-  //     $(this).css("right","0px")
-  //     $(this).css("height","50px")
-  //     $(this).css('z-index', '0');
-  //     $(this).css("display","block")
-  //     next(); 
-  //   });
-
   $('#js-properties-panel').toggle();
   $('.io-editing-tools, .io-zoom-controls').css("right","15px");
   $('.io-zoom-controls').css("bottom","90px");
@@ -92,25 +74,6 @@ $("#hidePanel").click(function() {
 $("#editPanel").click(function() {
 
   if($('#js-properties-panel:hidden').length != 0){
-    
-    // $('#js-properties-panel').toggle("slide");
-    // $('.io-editing-tools, .io-zoom-controls').css("right","280px");
-    // $('.io-zoom-controls').css("bottom","15px");
-    // $('.bpmn-js-bpmnlint-button').css("right","280px");
-    // // $('.io-alerts').css("left","40%");
-    // $('.io-dialog .content').css("left","48%");
-    // $('.djs-search-container').css("left","-180px");
-    // $('.vertical').css("display","none")
-    // $('.vertical')
-    //   .delay(400)
-    //   .queue(function (next) { 
-    //     $(this).css('right', '259px'); 
-    //     $(this).css('height', '30px');
-    //     $(this).css('z-index', '11');
-    //     $(this).css("display","block")
-    //     next(); 
-    //   });
-
     $('#js-properties-panel').toggle();
     $('.io-editing-tools, .io-zoom-controls').css("right", "280px");
     $('.io-zoom-controls').css("bottom", "15px");
@@ -120,28 +83,8 @@ $("#editPanel").click(function() {
     $('.djs-search-container').css("left", "-180px");
     $('.vertical').css("right", "259px")
     $('.vertical').css("height", "30px")
-  
-
   }
   else {
-    // $('.vertical').css("display","none")
-    // $('#js-properties-panel').toggle("slide");
-    // $('.io-editing-tools, .io-zoom-controls').css("right","15px");
-    // $('.io-zoom-controls').css("bottom","90px");
-    // $('.bpmn-js-bpmnlint-button').css("right","15px");
-    // // $('.io-alerts').css("left","50%");
-    // $('.io-dialog .content').css("left","55%");
-    // $('.djs-search-container').css("left","0");
-    // $('.vertical')
-    // .delay(400)
-    // .queue(function (next) { 
-    //   $(this).css("right","0px")
-    //   $(this).css("height","50px")
-    //   $(this).css('z-index', '0');
-    //   $(this).css("display","block")
-    //   next(); 
-    // });
-
     $('#js-properties-panel').toggle();
     $('.io-editing-tools, .io-zoom-controls').css("right","15px");
     $('.io-zoom-controls').css("bottom","90px");
@@ -151,8 +94,6 @@ $("#editPanel").click(function() {
     $('.djs-search-container').css("left","0");
     $('.vertical').css("right","0px")
     $('.vertical').css("height","50px")
-
-
   }
 });
 
@@ -229,27 +170,15 @@ $("#openLocal").on("click", function () {
   $('#fileDialog').trigger('click');
 })
 
-$("#downloadSVG").on("click", function () {
-  // modeler.saveSVG(done);
-})
-
-$("#downloadDiagram").on("click", function () {
-  // modeler.saveXML({ format: true }, function(err, xml) {
-  //   done(err, xml);
-  // });
-})
-
 function saveSVG(done) {
   modeler.saveSVG(done);
 }
 
 function saveDiagram(done) {
-
   modeler.saveXML({ format: true }, function(err, xml) {
     done(err, xml);
   });
 }
-
 
 var fileInput = document.getElementById('fileDialog');
 fileInput.addEventListener('change', function (e) {
@@ -302,14 +231,6 @@ $(function() {
     $(".io-export li a").css("cssText", "color: #555555 !important;");
     $(".io-export").removeClass("noHover");
 
-    // $(".io-export li a svg").hover(function() {
-    //   $(this).css("cssText", "color: black !important;");
-    // });
-
-    // $(".io-export li a svg").hover(function(e) { 
-  //     $(this).css("color",e.type === "mouseenter"?"red":"black") 
-  // })
-
     // TODO: diagram in ProcessName umbenennen... Idee: Globale Variable ...
     saveSVG(function(err, svg) {
       setEncoded(downloadSvgLink, 'diagram.svg', err ? null : svg);
@@ -318,6 +239,7 @@ $(function() {
     saveDiagram(function(err, xml) {
       setEncoded(downloadLink, 'diagram.bpmn', err ? null : xml);
     });
+
   }, 500);
 
   modeler.on('commandStack.changed', exportArtifacts);
