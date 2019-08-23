@@ -8,8 +8,10 @@ const {
 module.exports = function() {
 
   function check(node, reporter) {    
-    if (is(node, 'bpmn:Task') && typeof node.get("chatbot:detailInstruction") === 'undefined') {
-      reporter.report(node.id, 'Task is missing detail instruction for the chatbot');
+    if (is(node, 'bpmn:IntermediateThrowEvent')) {
+      if (typeof node.get("chatbot:detailDescription") === 'undefined')  {
+        reporter.report(node.id, 'IntermediateThrowEvent is missing detail description for the chatbot');
+      }
     }
   }
 

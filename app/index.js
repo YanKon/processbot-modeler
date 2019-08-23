@@ -1,7 +1,7 @@
 // import _ from 'lodash';
 import $ from 'jquery';
 import newDiagram from '../resources/newDiagram.bpmn';
-import PizzaDiagram from '../resources/pizza-collaboration.bpmn';
+import PizzaDiagram from '../resources/DeliverPizza.bpmn';
 
 import {
   debounce
