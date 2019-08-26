@@ -26,6 +26,7 @@ import './css/style.less';
 import '../node_modules/@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all'
 
+// erzeugt den Modeler => näheres in der Doku
 var modeler = new BpmnModeler({
   container: '#js-canvas',
   keyboard: { bindTo: document },
@@ -58,12 +59,12 @@ modeler.importXML(PizzaDiagram, function(err) {
   }
 });
 
+// blendet properties panel ein 
 $("#hidePanel").click(function() {
   $('#js-properties-panel').toggle();
   $('.io-editing-tools, .io-zoom-controls').css("right","15px");
   $('.io-zoom-controls').css("bottom","90px");
   $('.bpmn-js-bpmnlint-button').css("right","15px");
-  // $('.io-alerts').css("left","50%");
   $('.io-dialog .content').css("left","55%");
   $('.djs-search-container').css("left","0");
   $('.vertical').css("right","0px")
@@ -71,6 +72,7 @@ $("#hidePanel").click(function() {
 
 });
 
+// blendet properties panel ein oder aus
 $("#editPanel").click(function() {
 
   if($('#js-properties-panel:hidden').length != 0){
@@ -97,6 +99,7 @@ $("#editPanel").click(function() {
   }
 });
 
+// de- und aktiviert Fullscreen-Modus
 $("#toggleFullscreen").click(function() {
   toggleFullscreen();
 })
@@ -129,6 +132,7 @@ function toggleFullscreen(elem) {
 
 var zoomlevel = 1;
 
+// zoomt rein
 $("#zoomIn").on("click", function () {
   if (zoomlevel <= 3.0) {
     var canvas = modeler.get('canvas');	
@@ -138,6 +142,7 @@ $("#zoomIn").on("click", function () {
 
 })
 
+// zoomt raus
 $("#zoomOut").on("click", function () {
   if (zoomlevel >= 0.3) {
     var canvas = modeler.get('canvas');	
@@ -147,6 +152,7 @@ $("#zoomOut").on("click", function () {
   }
 })
 
+// resetet den zoom
 $("#zoomReset").on("click", function () {
   modeler.get('canvas').zoom('fit-viewport');
   var canvas = modeler.get('canvas');	
@@ -170,10 +176,12 @@ $("#openLocal").on("click", function () {
   $('#fileDialog').trigger('click');
 })
 
+// speichert Diagramm als SVG
 function saveSVG(done) {
   modeler.saveSVG(done);
 }
 
+// speichert Diagramm als BMPN
 function saveDiagram(done) {
   modeler.saveXML({ format: true }, function(err, xml) {
     done(err, xml);
@@ -190,6 +198,7 @@ fileInput.addEventListener('change', function (e) {
   reader.readAsText(file);
 });
 
+// lädt ein bestehendes Diagramm
 function openDiagram(xml) {
   modeler.get('linting').deactivateLinting();
   modeler.importXML(xml, function(err) {

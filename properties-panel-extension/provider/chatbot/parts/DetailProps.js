@@ -8,7 +8,7 @@ import {
 export default function(group, element) {
 
   // Only return an entry, if the currently selected
-  // element is a start event.
+  // element is a Task
   if (is(element, 'bpmn:Task')) {
     group.entries.push(entryFactory.textBox({
       id : 'detailInstruction',
@@ -17,7 +17,8 @@ export default function(group, element) {
       modelProperty : 'detailInstruction'
     }));
   }
-
+  // Only return an entry, if the currently selected
+  // element is a IntermediateThrowEvent
   if (is(element, 'bpmn:IntermediateThrowEvent')) {
     group.entries.push(entryFactory.textBox({
       id : 'detailDescription',

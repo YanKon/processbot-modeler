@@ -45,37 +45,26 @@ function createGeneralTabGroups(element, bpmnFactory, elementRegistry, translate
 
   documentationProps(documentationGroup, element, bpmnFactory, translate);
 
-  // var chatbotGroup = {
-  //   id: 'chatbotInformations',
-  //   label: 'Chatbot Instruction',
-  //   entries: []
-  // };
-
-  // // Add the spell props to the black magic group.
-  // instructionProps(chatbotGroup, element, bpmnFactory);
-  // detailInstructionProps(chatbotGroup, element, bpmnFactory);
-
   return[
     generalGroup,
     detailsGroup,
     documentationGroup,
-    // chatbotGroup
   ];
 
   
 }
 
-// Create the custom magic tab
+// Create the custom chatbot tab
 function createChatbotTabGroups(element, bpmnFactory) {
 
-  // Create a group called "Black Magic".
+  // Create a group called "chatbot informations".
   var chatbotGroup = {
     id: 'chatbotInformations',
     label: 'Chatbot informations',
     entries: []
   };
 
-  // Add the spell props to the black magic group.
+  // Add the general und detail props to the chatbot tab.
   generalProps(chatbotGroup, element, bpmnFactory);
   detailProps(chatbotGroup, element, bpmnFactory);
 
@@ -98,14 +87,14 @@ export default function ChatbotPropertiesProvider(
       groups: createGeneralTabGroups(element, bpmnFactory, elementRegistry, translate)
     };
 
-    // The "magic" tab
+    // The "chatbot" tab
     var chatbotTab = {
       id: 'chatbot',
       label: 'Chatbot',
       groups: createChatbotTabGroups(element, bpmnFactory)
     };
 
-    // Show general + "magic" tab
+    // Show general + "chatbot" tab
     return [
       generalTab,
       chatbotTab

@@ -8,7 +8,7 @@ import {
 export default function(group, element) {
 
   // Only return an entry, if the currently selected
-  // element is a start event.
+  // element is a Task
   if (is(element, 'bpmn:Task')) {
     group.entries.push(entryFactory.textBox({
       id : 'instruction',
@@ -17,7 +17,8 @@ export default function(group, element) {
       modelProperty : 'instruction'
     }));
   }
-
+  // Only return an entry, if the currently selected
+  // element is a IntermediateThrowEvent
   if (is(element, 'bpmn:IntermediateThrowEvent')) {
     group.entries.push(entryFactory.textBox({
       id : 'button',
@@ -26,7 +27,8 @@ export default function(group, element) {
       modelProperty : 'button'
     }));
   }
-
+  // Only return an entry, if the currently selected
+  // element is a ExclusiveGateway
   if (is(element, 'bpmn:ExclusiveGateway') && element.outgoing.length > 1) {
     group.entries.push(entryFactory.textBox({
       id : 'splitQuestion',
