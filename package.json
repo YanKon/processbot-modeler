@@ -30,7 +30,7 @@
     "bpmnlint-plugin-processbot": "file:./bpmnlint-plugin-processbot",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "raw-loader": "^2.0.0",
     "webpack-jquery-ui": "^2.0.1"
   }
